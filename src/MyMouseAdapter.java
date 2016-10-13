@@ -10,8 +10,7 @@ import javax.swing.JFrame;
 
 public class MyMouseAdapter extends MouseAdapter {
     private Random generator = new Random();
- //  Coordinates b = new Coordinates(3,2);
-    public void mousePressed(MouseEvent e) {
+   public void mousePressed(MouseEvent e) {
         switch (e.getButton()) {
         case 1:        //Left mouse button
             Component c = e.getComponent();
@@ -96,17 +95,24 @@ public class MyMouseAdapter extends MouseAdapter {
                             Color newColor = null;
                             switch (generator.nextInt(1)) {
                             case 0:
-                                newColor = Color.BLACK;
+                                newColor = Color.GRAY;
+                             if(myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY].equals(Color.RED)){
+                            	 newColor = Color.RED;
+                            	 
+                             }
+                             //System.out.println(p.getPositions_of_Mines[1]);
+                            	 
+                           
                                 break;
                   
-                            }
+                }
                             myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
                             myPanel.repaint();
-               
                 }
-                    }
-                
-            
+            }
+                    
+        
+    
             myPanel.repaint();
             break;
         case 3:        //Right mouse button
@@ -133,23 +139,31 @@ public class MyMouseAdapter extends MouseAdapter {
                  //Had pressed outside
                  //Do nothing
              } else {
-                 if ((grid_X == -1) || (grid_Y == -1)) {
-                     //Is releasing outside
-                     //Do nothing
-                 } else {
-                             
+                    
                              Color newColor = null;
                              switch (generator.nextInt(1)) {
                              case 0:
-                                 newColor = Color.RED;
-                                 break;
+                                if( my_Panel.colorArray[my_Panel.mouseDownGridX][my_Panel.mouseDownGridY].equals(Color.RED)){
+                                	newColor = Color.WHITE;
+                                }
+                                else{
+                                	newColor = Color.RED;
+                                }
+                                
+                                if( my_Panel.colorArray[my_Panel.mouseDownGridX][my_Panel.mouseDownGridY].equals(Color.GRAY)){
+                               	 newColor = Color.GRAY; 
+                                }
+                               
+                               
+                            
+                                break;
                    
                              }
                              my_Panel.colorArray[my_Panel.mouseDownGridX][my_Panel.mouseDownGridY] = newColor;
                              my_Panel.repaint();
-                
-                 }
-                     }
+               
+             }
+                     
                  
              
              my_Panel.repaint();
