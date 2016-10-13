@@ -101,7 +101,7 @@ public class MyMouseAdapter extends MouseAdapter {
                             	 
                              }
                              //System.out.println(p.getPositions_of_Mines[1]);
-                            	 
+                           //addeed code lololol  	 
                            
                                 break;
                   
